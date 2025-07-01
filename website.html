@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <!-- Mengatur karakter encoding agar karakter spesial tampil dengan benar -->
+    <meta charset="UTF-8">
+    <!-- Membuat tampilan responsif di perangkat mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Judul halaman yang tampil di tab browser -->
+    <title>CV & Portofolio Wayli Aliansah</title>
+    <!-- Memanggil library Font Awesome untuk ikon-ikon pada kontak -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts for a professional look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0078d7;
+            --primary-hover: #005a9e;
+            --text-dark: #212529;
+            --text-light: #6c757d;
+            --background-light: #f8f9fa;
+            --white: #ffffff;
+            --border-color: #dee2e6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-light);
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 960px;
+            background: var(--white);
+            margin: 30px auto;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            padding: 0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .navbar {
+            display: flex;
+            gap: 25px;
+            padding: 0 40px;
+            margin-bottom: 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .navbar a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 16px 0;
+            border-bottom: 3px solid transparent;
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .navbar a:hover, .navbar a.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+            background: none;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 40px;
+            background: var(--white);
+            color: var(--text-dark);
+            border-bottom: none; /* Remove previous border */
+            margin-bottom: 0;
+        }
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 30px;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 4px 15px rgba(0, 120, 215, 0.2);
+        }
+        .header-info h1 {
+            margin: 0;
+            font-size: 2.6em;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        .header-info p {
+            margin: 5px 0 15px 0;
+            color: var(--text-light);
+            font-size: 1.1em;
+        }
+        h2 {
+            color: var(--text-dark);
+            margin-top: 30px;
+            font-weight: 600;
+            font-size: 1.6em;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+        ul {
+            padding-left: 20px;
+            list-style-position: outside;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        ul strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .contact-info {
+            margin-top: 15px;
+        }
+        .contact-info span, .contact-info a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: 20px;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95em;
+        }
+        .contact-info a:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+        .contact-info i {
+            width: 16px;
+            text-align: center;
+        }
+        /* Portofolio */
+        .portfolio-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .project-card {
+            background: #fdfdff;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
+            border: 1px solid var(--border-color);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 120, 215, 0.15);
+            border-color: var(--primary-color);
+        }
+        .project-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .project-card h3 {
+            margin: 0 0 8px 0;
+            color: var(--primary-color);
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+        .project-card p {
+            margin: 0 0 12px 0;
+            color: var(--text-light);
+            flex-grow: 1;
+        }
+        .project-card .project-meta {
+            font-size: 0.9em;
+            color: #888;
+            margin-bottom: 12px;
+        }
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .tech-badge {
+            background: #eaf5ff;
+            color: var(--primary-color);
+            font-size: 0.85em;
+            padding: 5px 12px;
+            border-radius: 16px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .project-card .project-link {
+            margin-top: auto;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+            align-self: flex-start;
+        }
+        .project-card .project-link:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+        .content-area {
+            padding: 10px 40px 40px 40px;
+        }
+
+        @media (max-width: 768px) {
+            .container { margin: 0; border-radius: 0; box-shadow: none; padding: 0;}
+            .header { flex-direction: column; text-align: center; padding: 30px 20px;}
+            .profile-img { margin: 0 auto 20px auto; }
+            .navbar { padding: 0 20px; }
+            .content-area { padding: 10px 20px 20px 20px; }
+        }
+        @media (max-width: 600px) {
+            .portfolio-list { grid-template-columns: 1fr; }
+            .header-info h1 { font-size: 2.2em; }
+            .contact-info span, .contact-info a { margin-right: 10px; flex-direction: column; gap: 4px; text-align: center; }
+        }
+    </style>
+    <script>
+    // Navigasi antar section tanpa reload
+    function showSection(id) {
+        document.querySelectorAll('.main-section').forEach(sec => sec.style.display = 'none');
+        document.getElementById(id).style.display = 'block';
+        document.querySelectorAll('.navbar a').forEach(a => a.classList.remove('active'));
+        document.getElementById('nav-' + id).classList.add('active');
+    }
+    window.onload = function() {
+        showSection('cv'); // Tampilkan CV saat pertama kali
+    };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigasi sederhana -->
+        <nav class="navbar">
+            <a href="#" id="nav-cv" onclick="showSection('cv');return false;">CV</a>
+            <a href="#" id="nav-portfolio" onclick="showSection('portfolio');return false;">Portofolio Proyek</a>
+        </nav>
+        <!-- Bagian header: berisi foto, nama, jabatan, dan kontak -->
+        <div class="header">
+            <!-- Memanggil file foto profil dari file lokal -->
+            <img src="IMG_4537.JPG" alt="Foto Profil" class="profile-img"> <!-- Foto profil -->
+            <div class="header-info">
+                <h1>WAYLI ALIANSAH</h1> <!-- Nama lengkap -->
+                <p>Mahasiswa Fisika Instrumentasi</p> <!-- Jabatan/posisi -->
+                <div class="contact-info"> <!-- Informasi kontak -->
+                    <span><i class="fa-solid fa-location-dot"></i> Jl. H. Daerah No. 110, Cipayung, Jakarta Timur</span><br>
+                    <span><a href="tel:08567124381" style="color: inherit;"><i class="fa-solid fa-phone"></i> 0856-7124-381</a></span>
+                    <span><a href="mailto:wayli.aliansah76@gmail.com" style="color: inherit;"><i class="fa-solid fa-envelope"></i> wayli.aliansah76@gmail.com</a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-area">
+            <!-- SECTION: CV -->
+            <div id="cv" class="main-section">
+                <!-- Bagian profil singkat -->
+                <div class="section">
+                    <h2>Profil</h2>
+                    <p>
+                        Saya adalah mahasiswa Fisika murni perguruan tinggi dengan fokus pemantapan Fisika Instrumentasi UIN Syarif Hidayatullah Jakarta angkatan 2022.<br>
+                        Saya memiliki kemampuan berorganisasi. Saya telah memperdalam softskill berorganisasi saya sejak menjadi mahasiswa baru. Saya adalah orang yang bertanggung jawab dan pekerja keras.
+                    </p>
+                </div>
+                <!-- Bagian riwayat organisasi -->
+                <div class="section">
+                    <h2>Riwayat Organisasi</h2>
+                    <ul>
+                        <li>
+                            <strong>Wakil Ketua, Himpunan Mahasiswa Fisika UIN Syarif Hidayatullah Jakarta</strong> <br>
+                            <em>Februari 2024 - Sekarang</em>
+                            <ul>
+                                <li>Bertugas dalam pengawasan kinerja semua departemen yang ada dalam Himpunan</li>
+                                <li>Sebagai Ketua Pelaksanaan Program Kerja Evaluasi dan Kinerja Himpunan</li>
+                                <li>Membuka koordinasi dengan para ketua dan wakil himpunan yang dinaungi oleh Fakultas Sains dan Teknologi UIN Syarif Hidayatullah Jakarta</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Staff Penelitian dan Pengembangan, Himpunan Mahasiswa Fisika UIN Syarif Hidayatullah Jakarta</strong> <br>
+                            <em>Maret 2023 - Februari 2024</em>
+                            <ul>
+                                <li>Sebagai penanggung jawab agenda Manajemen Proyek (MENPRO), Fisika Instrumentasi, Fisika Material, Geofisika</li>
+                                <li>Ketua pelaksana kegiatan lanjutan Manajemen Proyek, pada konferensi pemaparan "Final Project" Manajemen Proyek</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Bagian riwayat pendidikan -->
+                <div class="section">
+                    <h2>Riwayat Pendidikan</h2>
+                    <ul>
+                        <li>
+                            <strong>UIN SYARIF HIDAYATULLAH JAKARTA</strong> <br>
+                            <em>2022 - Sekarang</em>
+                            <ul>
+                                <li>Prodi Fisika, dengan fokus pemantapan Fisika Instrumentasi</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>SMA PGRI 4 JAKARTA</strong> <br>
+                            <em>2018 - 2021</em>
+                            <ul>
+                                <li>Jurusan Ilmu Pengetahuan Alam</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Bagian pengalaman kerja/magang -->
+                <div class="section">
+                    <h2>Pengalaman</h2>
+                    <ul>
+                        <li>
+                            <strong>Balai Besar Pengujian Minyak dan Gas Bumi LEMIGAS</strong> <br>
+                            <em>Mei 2024 - Agustus 2024</em>
+                            <ul>
+                                <li>Magang Manajemen Proyek Fisika Instrumentasi</li>
+                                <li>Divisi Data Analisis dan Perangkat Keras</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Bagian keahlian/skill -->
+                <div class="section">
+                    <h2>Keahlian</h2>
+                    <ul>
+                        <li>Python</li>
+                        <li>Robotik</li>
+                        <li>Ms. Office</li>
+                        <li>Ms. Excel</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SECTION: PORTOFOLIO PROYEK -->
+            <div id="portfolio" class="main-section" style="display:none;">
+                <div class="section">
+                    <h2>Portofolio Proyek Fisika & Instrumentasi</h2>
+                    <div class="portfolio-list">
+                        <!-- Proyek 1: Monitoring Suhu Berbasis Arduino -->
+                        <div class="project-card">
+                            <img src="Gemini_Generated_Image_1xpf2w1xpf2w1xpf.png" alt="Monitoring Suhu Arduino">
+                            <h3>Monitoring Suhu Berbasis Arduino</h3>
+                            <div class="project-meta">2023 &mdash; Proyek Kuliah</div>
+                            <div class="tech-badges">
+                                <span class="tech-badge"><i class="fa-brands fa-usb"></i> Arduino</span>
+                                <span class="tech-badge"><i class="fa-solid fa-temperature-half"></i> DHT11</span>
+                                <span class="tech-badge"><i class="fa-solid fa-display"></i> LCD 16x2</span>
+                                <span class="tech-badge"><i class="fa-solid fa-bell"></i> Buzzer</span>
+                            </div>
+                            <p>Membuat alat monitoring suhu ruangan menggunakan sensor DHT11 dan Arduino Uno, dilengkapi tampilan LCD dan alarm otomatis jika suhu melewati batas tertentu.</p>
+                        </div>
+                        <!-- Proyek 2: Analisis Data Sensor Tekanan -->
+                        <div class="project-card">
+                            <img src="Gemini_Generated_Image_j1tvdgj1tvdgj1tv.png" alt="Analisis Data Sensor Tekanan">
+                            <h3>Analisis Data Sensor Tekanan</h3>
+                            <div class="project-meta">2024 &mdash; Magang LEMIGAS</div>
+                            <div class="tech-badges">
+                                <span class="tech-badge"><i class="fa-brands fa-python"></i> Python</span>
+                                <span class="tech-badge"><i class="fa-solid fa-chart-line"></i> Matplotlib</span>
+                                <span class="tech-badge"><i class="fa-solid fa-table"></i> Pandas</span>
+                                <span class="tech-badge"><i class="fa-solid fa-file-excel"></i> Ms. Excel</span>
+                            </div>
+                            <p>Mengolah data sensor tekanan dari alat uji laboratorium menggunakan Python untuk visualisasi dan analisis tren, serta membuat laporan otomatis dalam format Excel.</p>
+                        </div>
+                        <!-- Proyek 3: Robot Line Follower Sederhana -->
+                        <div class="project-card">
+                            <img src="Gemini_Generated_Image_2koeys2koeys2koe.png" alt="Robot Line Follower">
+                            <h3>Robot Line Follower Sederhana</h3>
+                            <div class="project-meta">2022 &mdash; Lomba Internal Kampus</div>
+                            <div class="tech-badges">
+                                <span class="tech-badge"><i class="fa-brands fa-usb"></i> Arduino</span>
+                                <span class="tech-badge"><i class="fa-solid fa-wave-square"></i> Sensor IR</span>
+                                <span class="tech-badge"><i class="fa-solid fa-gears"></i> Motor DC</span>
+                            </div>
+                            <p>Merancang dan memprogram robot line follower berbasis sensor inframerah untuk mengikuti jalur pada arena lomba, dengan sistem kontrol sederhana.</p>
+                        </div>
+                        <!-- Tambahkan proyek lain di sini sesuai kebutuhan -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
